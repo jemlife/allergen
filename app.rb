@@ -8,6 +8,6 @@ get('/') do
 end
 
 get('/result') do
-@result = params.fetch('input')
+@result = params.fetch('input').to_i().allergen()
 erb(:result)
 end

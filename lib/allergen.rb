@@ -1,6 +1,7 @@
 class Fixnum
   define_method(:allergen) do
-    score = self
+    score = self.to_i
+
     allergen_array = []
     is_user_an_idiot = 0
 if score <= 255
@@ -34,6 +35,8 @@ if score <= 255
         end
   end
   if is_user_an_idiot == 0
+    array_count = allergen_array.count
+    allergen_array.at(array_count - 1).insert(0, "and ")
   allergens = allergen_array.join(', ')
   "You are allergic to #{allergens}"
 else "Your number doesn't correspond to any combination of allergies."
